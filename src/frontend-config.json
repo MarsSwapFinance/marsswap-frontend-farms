@@ -165,6 +165,24 @@
     {
       "pid": 8,
       "risk": 4,
+      "lpSymbol": "MARS-mCOIN LP",
+      "lpAddresses": {
+        "56": ""
+      },
+      "tokenSymbol": "MARS",
+      "quoteTokenSymbol": "mCOIN",
+      "tokenAddresses": {
+        "56": "0xDBB53445361a53e2609d1935DB5d03D1e75cfFE0"
+      },
+      "quoteTokenAdresses": {
+        "56": "0x49022089e78a8D46Ec87A3AF86a1Db6c189aFA6f"
+      },
+      "isTokenOnly": false,
+      "depositFeeBP": 0
+    },
+    {
+      "pid": 9,
+      "risk": 4,
       "lpSymbol": "MARS-mNFLX LP",
       "lpAddresses": {
         "56": ""
@@ -181,7 +199,7 @@
       "depositFeeBP": 0
     },
     {
-      "pid": 9,
+      "pid": 10,
       "risk": 4,
       "lpSymbol": "MARS-mFB LP",
       "lpAddresses": {
@@ -199,7 +217,7 @@
       "depositFeeBP": 0
     },
     {
-      "pid": 10,
+      "pid": 11,
       "risk": 4,
       "lpSymbol": "MARS-mTWTR LP",
       "lpAddresses": {
@@ -217,7 +235,7 @@
       "depositFeeBP": 0
     },
     {
-      "pid": 11,
+      "pid": 12,
       "risk": 4,
       "lpSymbol": "MARS-mBABA LP",
       "lpAddresses": {
@@ -235,7 +253,7 @@
       "depositFeeBP": 0
     },
     {
-      "pid": 12,
+      "pid": 13,
       "risk": 4,
       "lpSymbol": "MARS-mQQQ LP",
       "lpAddresses": {
@@ -253,7 +271,7 @@
       "depositFeeBP": 0
     },
     {
-      "pid": 13,
+      "pid": 14,
       "risk": 4,
       "lpSymbol": "MARS-mIAU LP",
       "lpAddresses": {
@@ -271,7 +289,7 @@
       "depositFeeBP": 0
     },
     {
-      "pid": 14,
+      "pid": 15,
       "risk": 4,
       "lpSymbol": "MARS-mSLV LP",
       "lpAddresses": {
@@ -289,7 +307,7 @@
       "depositFeeBP": 0
     },
     {
-      "pid": 15,
+      "pid": 16,
       "risk": 4,
       "lpSymbol": "MARS-mUSO LP",
       "lpAddresses": {
@@ -307,7 +325,7 @@
       "depositFeeBP": 0
     },
     {
-      "pid": 16,
+      "pid": 17,
       "risk": 4,
       "lpSymbol": "MARS-mVIXY LP",
       "lpAddresses": {
@@ -325,7 +343,7 @@
       "depositFeeBP": 0
     },
     {
-      "pid": 17,
+      "pid": 18,
       "risk": 4,
       "lpSymbol": "MARS",
       "lpAddresses": {
@@ -343,7 +361,7 @@
       "depositFeeBP": 0
     },
     {
-      "pid": 18,
+      "pid": 19,
       "risk": 1,
       "lpSymbol": "mAAPL",
       "lpAddresses": {
@@ -361,7 +379,7 @@
       "depositFeeBP": 395
     },
     {
-      "pid": 19,
+      "pid": 20,
       "risk": 1,
       "lpSymbol": "mMSFT",
       "lpAddresses": {
@@ -379,7 +397,7 @@
       "depositFeeBP": 395
     },
     {
-      "pid": 20,
+      "pid": 21,
       "risk": 1,
       "lpSymbol": "mAMZN",
       "lpAddresses": {
@@ -397,7 +415,7 @@
       "depositFeeBP": 395
     },
     {
-      "pid": 21,
+      "pid": 22,
       "risk": 1,
       "lpSymbol": "mGOOGL",
       "lpAddresses": {
@@ -415,7 +433,7 @@
       "depositFeeBP": 395
     },
     {
-      "pid": 22,
+      "pid": 23,
       "risk": 1,
       "lpSymbol": "mTSLA",
       "lpAddresses": {
@@ -433,7 +451,25 @@
       "depositFeeBP": 395
     },
     {
-      "pid": 23,
+      "pid": 24,
+      "risk": 1,
+      "lpSymbol": "mCOIN",
+      "lpAddresses": {
+        "56": ""
+      },
+      "tokenSymbol": "mCOIN",
+      "quoteTokenSymbol": "mCOIN",
+      "tokenAddresses": {
+        "56": "0x49022089e78a8D46Ec87A3AF86a1Db6c189aFA6f"
+      },
+      "quoteTokenAdresses": {
+        "56": "0x49022089e78a8D46Ec87A3AF86a1Db6c189aFA6f"
+      },
+      "isTokenOnly": true,
+      "depositFeeBP": 395
+    },
+    {
+      "pid": 25,
       "risk": 1,
       "lpSymbol": "mNFLX",
       "lpAddresses": {
@@ -451,7 +487,7 @@
       "depositFeeBP": 395
     },
     {
-      "pid": 24,
+      "pid": 26,
       "risk": 1,
       "lpSymbol": "mFB",
       "lpAddresses": {
@@ -469,7 +505,7 @@
       "depositFeeBP": 395
     },
     {
-      "pid": 25,
+      "pid": 27,
       "risk": 1,
       "lpSymbol": "mTWTR",
       "lpAddresses": {
@@ -487,7 +523,7 @@
       "depositFeeBP": 395
     },
     {
-      "pid": 26,
+      "pid": 28,
       "risk": 1,
       "lpSymbol": "mBABA",
       "lpAddresses": {
@@ -505,7 +541,7 @@
       "depositFeeBP": 395
     },
     {
-      "pid": 27,
+      "pid": 29,
       "risk": 1,
       "lpSymbol": "mQQQ",
       "lpAddresses": {
@@ -523,7 +559,7 @@
       "depositFeeBP": 395
     },
     {
-      "pid": 28,
+      "pid": 30,
       "risk": 1,
       "lpSymbol": "mIAU",
       "lpAddresses": {
@@ -541,7 +577,7 @@
       "depositFeeBP": 395
     },
     {
-      "pid": 29,
+      "pid": 31,
       "risk": 1,
       "lpSymbol": "mSLV",
       "lpAddresses": {
@@ -559,7 +595,7 @@
       "depositFeeBP": 395
     },
     {
-      "pid": 30,
+      "pid": 32,
       "risk": 1,
       "lpSymbol": "mUSO",
       "lpAddresses": {
@@ -577,7 +613,7 @@
       "depositFeeBP": 395
     },
     {
-      "pid": 31,
+      "pid": 33,
       "risk": 1,
       "lpSymbol": "mVIXY",
       "lpAddresses": {
