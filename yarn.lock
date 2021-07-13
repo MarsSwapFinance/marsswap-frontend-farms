@@ -1903,7 +1903,7 @@
 
 "@pancakeswap-libs/uikit@MarsSwapFinance/marsswap-uikit":
   version "0.10.2"
-  resolved "https://codeload.github.com/MarsSwapFinance/marsswap-uikit/tar.gz/a981c34f16d4e44713e19ccb42c36e1c374e65ed"
+  resolved "https://codeload.github.com/MarsSwapFinance/marsswap-uikit/tar.gz/bbf61b3e838482fe74767384c99ab807fb6c33f3"
   dependencies:
     "@types/lodash" "^4.14.162"
     "@types/styled-system" "^5.1.10"

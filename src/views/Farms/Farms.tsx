@@ -18,18 +18,17 @@ import FarmCard, { FarmWithStakedValue } from './components/FarmCard/FarmCard'
 import FarmTabButtons from './components/FarmTabButtons'
 import Divider from './components/Divider'
 
-export interface FarmsProps{
-  tokenMode?: boolean
+export interface FarmsProps {
+  stocksMode?: boolean
 }
 
-const Farms: React.FC<FarmsProps> = (farmsProps) => {
+const Farms: React.FC<FarmsProps> = ({ stocksMode }) => {
   const { path } = useRouteMatch()
   const TranslateString = useI18n()
   const farmsLP = useFarms()
   const marsPrice = usePriceMarsBusd()
   const bnbPrice = usePriceBnbBusd()
   const { account, ethereum }: { account: string; ethereum: provider } = useWallet()
-  const {tokenMode} = farmsProps;
 
   const dispatch = useDispatch()
   const { fastRefresh } = useRefresh()
@@ -41,8 +40,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
   const [stakedOnly, setStakedOnly] = useState(false)
 
-  const activeFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.multiplier !== '0X')
-  const inactiveFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.multiplier === '0X')
+  const activeFarms = farmsLP.filter((farm) => !!farm.isStock === !!stocksMode && farm.multiplier !== '0X')
+  const inactiveFarms = farmsLP.filter((farm) => !!farm.isStock === !!stocksMode && farm.multiplier === '0X')
 
   const stakedOnlyFarms = activeFarms.filter(
     (farm) => farm.userData && new BigNumber(farm.userData.stakedBalance).isGreaterThan(0),
@@ -58,7 +57,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         // if (!farm.tokenAmount || !farm.lpTotalInQuoteToken || !farm.lpTotalInQuoteToken) {
         //   return farm
         // }
-        const marsRewardPerBlock = new BigNumber(farm.marsPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
+        const marsRewardPerBlock = new BigNumber(farm.marsPerBlock || 1).times(new BigNumber(farm.poolWeight)).div(new BigNumber(10).pow(18))
         const marsRewardPerYear = marsRewardPerBlock.times(BLOCKS_PER_YEAR)
 
         let apy = marsPrice.times(marsRewardPerYear);
@@ -69,7 +68,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           totalValue = totalValue.times(bnbPrice);
         }
 
-        if(totalValue.comparedTo(0) > 0){
+        if (totalValue.comparedTo(0) > 0) {
           apy = apy.div(totalValue);
         }
 
@@ -95,16 +94,15 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
       <TickerBar />
       <Heading as="h1" size="lg" color="primary" mb="50px" style={{ textAlign: 'center' }}>
         {
-          tokenMode ?
-            TranslateString(10002, 'Stake tokens to earn MARS')
-            :
-          TranslateString(320, 'Stake LP tokens to earn MARS')
+          stocksMode
+            ? 'Stake stocks to earn MARS'
+            : 'Stake tokens to earn MARS'
         }
       </Heading>
       <Heading as="h2" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
         The deposit fee will be used to buyback MARS
       </Heading>
-      <FarmTabButtons stakedOnly={stakedOnly} setStakedOnly={setStakedOnly}/>
+      <FarmTabButtons stakedOnly={stakedOnly} setStakedOnly={setStakedOnly} />
       <div>
         <Divider />
         <FlexLayout>
@@ -116,7 +114,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           </Route>
         </FlexLayout>
       </div>
-      <Image src="/images/mars/mars-background.png" alt="illustration" width={1352} height={587} responsive />
+      {/* <Image src="/images/mars/mars-background.png" alt="illustration" width={1352} height={587} responsive /> */}
     </Page>
   )
 }

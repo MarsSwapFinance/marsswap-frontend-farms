@@ -57,11 +57,11 @@ const App: React.FC = () => {
             <Route path="/farms">
               <Farms />
             </Route>
-            <Route path="/pools">
-              <Farms tokenMode/>
+            <Route path="/stocks">
+              <Farms stocksMode />
             </Route>
             <Route path="/referrals">
-             <Referrals />
+              <Referrals />
             </Route>
             {/* <Route path="/lottery"> */}
             {/*  <Lottery /> */}
