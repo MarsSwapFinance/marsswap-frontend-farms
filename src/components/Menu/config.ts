@@ -8,14 +8,18 @@ const config: MenuEntry[] = [
     href: '/',
   },
   {
-    label: 'Exchange',
-    href: 'https://exchange.marsswap.finance/swap',
-    icon: "ExchangeIcon"
-  },
-  {
-    label: 'Liquidity',
-    href: 'https://exchange.marsswap.finance/pool',
-    icon: 'LiquidityIcon'
+    label: "Trade",
+    icon: "TradeIcon",
+    items: [
+      {
+        label: "Exchange",
+        href: "https://exchange.marsswap.finance/swap",
+      },
+      {
+        label: "Liquidity",
+        href: "https://exchange.marsswap.finance/pool",
+      },
+    ],
   },
   {
     label: 'Farms',
@@ -38,9 +42,18 @@ const config: MenuEntry[] = [
     href: 'https://docs.marsswap.finance/roadmap',
   },
   {
-    label: 'Audit',
+    label: 'Audits',
     icon: 'AuditIcon',
-    href: 'https://marsswap.finance/audits/techrate.pdf',
+    items: [
+      {
+        label: 'RD Auditors',
+        href: 'https://marsswap.finance/audits/rdauditors.pdf'
+      },
+      {
+        label: 'Techrate',
+        href: 'https://marsswap.finance/audits/techrate.pdf'
+      }
+    ]
   },
   // {
   //   label: 'Info',

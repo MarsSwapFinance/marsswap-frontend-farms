@@ -23,17 +23,17 @@ const ReferralCard = () => {
         {
           account
             ?
-              <>
-                <h1 style={{ fontSize: 24, marginBottom: 32 }}>Your Referral Link</h1>
-                <p>https://marsswap.finance/?ref={account}</p>
-                <h1 style={{ fontSize: 24, marginTop: 32, marginBottom: 16 }}>Total Referrals</h1>
-                <p>{referrals?.referralsCount}</p>
-              </>
+            <>
+              <h1 style={{ fontSize: 24, marginBottom: 32 }}>Your Referral Link</h1>
+              <p>https://marsswap.finance/?ref={account}</p>
+              <h1 style={{ fontSize: 24, marginTop: 32, marginBottom: 16 }}>Total Referrals</h1>
+              <p>{referrals?.referralsCount}</p>
+            </>
             :
-              <>
-                <UnlockButton />
-                <p style={{ marginTop: 16 }}>Unlock wallet to get your unique referral link.</p>
-              </>
+            <>
+              <UnlockButton />
+              <p style={{ marginTop: 16 }}>Unlock wallet to get your unique referral link.</p>
+            </>
         }
       </CardBody>
     </StyledReferralCard>

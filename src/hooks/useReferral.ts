@@ -13,6 +13,8 @@ const useReferrals = () => {
       referralContract.methods.referralsCount(account).call()
         .then(setReferralsCount)
         .finally(() => setLoading(false))
+    } else {
+      setLoading(false)
     }
   }, [account, referralContract])
 

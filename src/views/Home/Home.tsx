@@ -1,11 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useContext } from 'react'
+import styled, { ThemeContext } from 'styled-components'
 import { Heading, Text, BaseLayout } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
 import TickerBar from 'components/TickerBar'
 import FarmStakingCard from './components/FarmStakingCard'
-import LotteryCard from './components/LotteryCard'
 import CakeStats from './components/CakeStats'
 import TotalValueLockedCard from './components/TotalValueLockedCard'
 import TwitterCard from './components/TwitterCard'
@@ -57,21 +56,23 @@ const CardImage = styled.img`
 
 const Home: React.FC = () => {
   const TranslateString = useI18n()
+  const { isDark } = useContext(ThemeContext);
 
   return (
     <Page>
       <TickerBar />
       <Hero>
         <Heading as="h1" size="xl" mb="24px" color="secondary">
-          <CardImage src="/images/tokens/mars.png" alt="MARS logo" width={32} height={32} />
-          {TranslateString(576, 'MarsSwap')}
+          {
+            isDark ? <img src="/images/marsswap.png" alt="MARS logo" /> : <img src="/images/marsswap-light.png" alt="MARS logo" />
+          }
         </Heading>
         <Text>{TranslateString(578, 'AMM and yield farm for Mirror tokens on Binance Smart Chain.')}</Text>
       </Hero>
       <div>
         <Cards>
           <FarmStakingCard />
-          <TwitterCard/>
+          <TwitterCard />
           <CakeStats />
           <TotalValueLockedCard />
         </Cards>
