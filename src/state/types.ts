@@ -9,7 +9,7 @@ export interface Farm extends FarmConfig {
   poolWeight?: number
   depositFeeBP?: number
   marsPerBlock?: number
-    userData?: {
+  userData?: {
     allowance: BigNumber
     tokenBalance: BigNumber
     stakedBalance: BigNumber
@@ -33,6 +33,7 @@ export interface Pool extends PoolConfig {
 
 export interface FarmsState {
   data: Farm[]
+  bnbPrice: BigNumber | null
 }
 
 export interface PoolsState {

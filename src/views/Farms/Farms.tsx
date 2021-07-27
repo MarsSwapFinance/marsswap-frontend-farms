@@ -93,14 +93,7 @@ const Farms: React.FC<FarmsProps> = ({ stocksMode }) => {
     <Page>
       <TickerBar />
       <Heading as="h1" size="lg" color="primary" mb="50px" style={{ textAlign: 'center' }}>
-        {
-          stocksMode
-            ? 'Stake stocks to earn MARS'
-            : 'Stake tokens to earn MARS'
-        }
-      </Heading>
-      <Heading as="h2" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
-        The deposit fee will be used to buyback MARS
+        Stake LPs to earn MARS
       </Heading>
       <FarmTabButtons stakedOnly={stakedOnly} setStakedOnly={setStakedOnly} />
       <div>
@@ -114,7 +107,6 @@ const Farms: React.FC<FarmsProps> = ({ stocksMode }) => {
           </Route>
         </FlexLayout>
       </div>
-      {/* <Image src="/images/mars/mars-background.png" alt="illustration" width={1352} height={587} responsive /> */}
     </Page>
   )
 }

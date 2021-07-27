@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit'
+import BigNumber from 'bignumber.js'
 import farmsConfig from 'config/constants/farms'
 import fetchFarms from './fetchFarms'
 import {
@@ -10,7 +11,7 @@ import {
 } from './fetchFarmUser'
 import { FarmsState, Farm } from '../types'
 
-const initialState: FarmsState = { data: [...farmsConfig] }
+const initialState: FarmsState = { data: [...farmsConfig], bnbPrice: null }
 
 export const farmsSlice = createSlice({
   name: 'Farms',
@@ -30,13 +31,25 @@ export const farmsSlice = createSlice({
         state.data[index] = { ...state.data[index], userData: userDataEl }
       })
     },
+    setBnbPrice: (state, action) => {
+      return {
+        ...state,
+        bnbPrice: action.payload ? new BigNumber(Math.round(action.payload)) : null
+      }
+    }
   },
 })
 
 // Actions
-export const { setFarmsPublicData, setFarmUserData } = farmsSlice.actions
+export const { setFarmsPublicData, setFarmUserData, setBnbPrice } = farmsSlice.actions
 
 // Thunks
+export const fetchBnbPrice = () => async (dispatch) => {
+  const res = await fetch('https://api.pancakeswap.info/api/v2/tokens/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c')
+  const data = await res.json()
+  const price = data.data.price
+  dispatch(setBnbPrice(price))
+}
 export const fetchFarmsPublicDataAsync = () => async (dispatch) => {
   const farms = await fetchFarms()
   dispatch(setFarmsPublicData(farms))

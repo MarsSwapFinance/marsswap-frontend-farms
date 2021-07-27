@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { ResetCSS } from '@pancakeswap-libs/uikit'
 import BigNumber from 'bignumber.js'
-import { useFetchPublicData } from 'state/hooks'
+import { useFetchBnb, useFetchPublicData } from 'state/hooks'
 import GlobalStyle from './style/Global'
 import Menu from './components/Menu'
 import PageLoader from './components/PageLoader'
@@ -43,6 +43,7 @@ const App: React.FC = () => {
   }, [])
 
   useFetchPublicData()
+  useFetchBnb()
 
   return (
     <Router basename="/">
@@ -54,7 +55,7 @@ const App: React.FC = () => {
             <Route path="/" exact>
               <Home />
             </Route>
-            <Route path="/farms">
+            <Route path="/mars">
               <Farms />
             </Route>
             <Route path="/stocks">

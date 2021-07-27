@@ -126,15 +126,15 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
     if (farm.apy) {
       return (
         <>
-        <ApyButton
-          lpLabel={lpLabel}
-          quoteTokenAdresses={quoteTokenAdresses}
-          quoteTokenSymbol={quoteTokenSymbol}
-          tokenAddresses={tokenAddresses}
-          cakePrice={cakePrice}
-          apy={farm.apy}
-        />
-        {farmAPY}%
+          <ApyButton
+            lpLabel={lpLabel}
+            quoteTokenAdresses={quoteTokenAdresses}
+            quoteTokenSymbol={quoteTokenSymbol}
+            tokenAddresses={tokenAddresses}
+            cakePrice={cakePrice}
+            apy={farm.apy}
+          />
+          {farmAPY}%
         </>
       )
     }
@@ -167,7 +167,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, cakePrice, bnbPrice,
       </Flex>
       <Flex justifyContent='space-between'>
         <Text style={{ fontSize: '24px' }}>{TranslateString(10001, 'Deposit Fee')}:</Text>
-        <Text bold style={{ fontSize: '24px' }}>{(farm.depositFeeBP / 100)}%</Text>
+        <Text bold style={{ fontSize: '24px' }}>0%</Text>
       </Flex>
       <CardActionsContainer farm={farm} ethereum={ethereum} account={account} />
       <Divider />

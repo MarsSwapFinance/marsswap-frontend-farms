@@ -22,12 +22,12 @@ const config: MenuEntry[] = [
     ],
   },
   {
-    label: 'Classic Farms',
+    label: 'MARS',
     icon: 'FarmIcon',
-    href: '/farms',
+    href: '/mars',
   },
   {
-    label: 'Stock Farms',
+    label: 'Stocks',
     icon: 'StocksIcon',
     href: '/stocks',
   },

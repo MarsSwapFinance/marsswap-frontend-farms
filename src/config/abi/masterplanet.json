@@ -2,18 +2,8 @@
   {
     "inputs": [
       {
-        "internalType": "contract MARS Token",
+        "internalType": "contract MarsToken",
         "name": "_mars",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_devaddr",
-        "type": "address"
-      },
-      {
-        "internalType": "address",
-        "name": "_feeAddress",
         "type": "address"
       },
       {
@@ -136,30 +126,11 @@
       {
         "indexed": true,
         "internalType": "address",
-        "name": "newAddress",
+        "name": "newMasterPlanet",
         "type": "address"
       }
     ],
-    "name": "SetDevAddress",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "user",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "newAddress",
-        "type": "address"
-      }
-    ],
-    "name": "SetFeeAddress",
+    "name": "SafeMarsUpgrade",
     "type": "event"
   },
   {
@@ -222,24 +193,10 @@
   },
   {
     "inputs": [],
-    "name": "devaddr",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function",
-    "constant": true
-  },
-  {
-    "inputs": [],
     "name": "mars",
     "outputs": [
       {
-        "internalType": "contract MARS Token",
+        "internalType": "contract MarsToken",
         "name": "",
         "type": "address"
       }
@@ -264,7 +221,7 @@
   },
   {
     "inputs": [],
-    "name": "feeAddress",
+    "name": "owner",
     "outputs": [
       {
         "internalType": "address",
@@ -278,12 +235,12 @@
   },
   {
     "inputs": [],
-    "name": "owner",
+    "name": "ownsMars",
     "outputs": [
       {
-        "internalType": "address",
+        "internalType": "bool",
         "name": "",
-        "type": "address"
+        "type": "bool"
       }
     ],
     "stateMutability": "view",
@@ -339,11 +296,6 @@
         "internalType": "uint256",
         "name": "accMarsPerShare",
         "type": "uint256"
-      },
-      {
-        "internalType": "uint16",
-        "name": "depositFeeBP",
-        "type": "uint16"
       }
     ],
     "stateMutability": "view",
@@ -483,11 +435,6 @@
         "type": "address"
       },
       {
-        "internalType": "uint16",
-        "name": "_depositFeeBP",
-        "type": "uint16"
-      },
-      {
         "internalType": "bool",
         "name": "_withUpdate",
         "type": "bool"
@@ -509,11 +456,6 @@
         "internalType": "uint256",
         "name": "_allocPoint",
         "type": "uint256"
-      },
-      {
-        "internalType": "uint16",
-        "name": "_depositFeeBP",
-        "type": "uint16"
       },
       {
         "internalType": "bool",
@@ -547,7 +489,7 @@
         "type": "uint256"
       }
     ],
-    "stateMutability": "view",
+    "stateMutability": "pure",
     "type": "function",
     "constant": true
   },
@@ -653,38 +595,25 @@
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "_devaddr",
-        "type": "address"
-      }
-    ],
-    "name": "dev",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_feeAddress",
-        "type": "address"
-      }
-    ],
-    "name": "setFeeAddress",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "uint256",
         "name": "_marsPerBlock",
         "type": "uint256"
       }
     ],
     "name": "updateEmissionRate",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_newMasterPlanet",
+        "type": "address"
+      }
+    ],
+    "name": "safeMarsUpgrade",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

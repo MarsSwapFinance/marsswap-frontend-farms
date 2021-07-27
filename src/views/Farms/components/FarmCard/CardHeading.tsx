@@ -25,12 +25,12 @@ const MultiplierTag = styled(Tag)`
 
 const FarmImage = ({ tokenSymbol, quoteTokenSymbol, isTokenOnly }: { tokenSymbol: string, quoteTokenSymbol: string, isTokenOnly: boolean }) => {
   if (isTokenOnly) {
-    return <Image src={`/images/tokens/${tokenSymbol.toLocaleLowerCase()}.png`} alt={quoteTokenSymbol} width={64} height={64} />
+    return <Image src={`/images/tokens/${tokenSymbol.toLocaleLowerCase()}.png`} alt={quoteTokenSymbol} width={48} height={48} />
   }
   return (
     <div className="flex space-x-1" style={{ display: 'flex' }}>
-      <img src={`/images/tokens/${tokenSymbol.toLocaleLowerCase()}.png`} alt={tokenSymbol} width={40} height={40} />
-      <img src={`/images/tokens/${quoteTokenSymbol.toLocaleLowerCase()}.png`} alt={tokenSymbol} width={40} height={40} style={{ marginLeft: '-1em' }} />
+      <img src={`/images/tokens/${tokenSymbol.toLocaleLowerCase()}.png`} alt={tokenSymbol} width={48} height={48} style={{ zIndex: 2 }} />
+      <img src={`/images/tokens/${quoteTokenSymbol.toLocaleLowerCase()}.png`} alt={tokenSymbol} width={48} height={48} style={{ marginLeft: '-1em', zIndex: 1 }} />
     </div>
   )
 }
@@ -47,7 +47,7 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
 }) => {
   return (
     <Wrapper justifyContent="space-between" alignItems="center" mb="12px">
-      <FarmImage tokenSymbol={tokenSymbol} quoteTokenSymbol={quoteTokenSymbol} isTokenOnly={isTokenOnly}/>
+      <FarmImage tokenSymbol={tokenSymbol} quoteTokenSymbol={quoteTokenSymbol} isTokenOnly={isTokenOnly} />
       <Flex flexDirection="column" alignItems="flex-end">
         <Heading mb="4px">{lpLabel}</Heading>
         <Flex justifyContent="center">

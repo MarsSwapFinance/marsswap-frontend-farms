@@ -4,16 +4,24 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { QuoteToken } from '../config/constants/types'
 import { fetchFarmsPublicDataAsync, fetchPoolsUserDataAsync } from './actions'
+import { fetchBnbPrice } from './farms'
 import { Farm, Pool, State } from './types'
 
 const ZERO = new BigNumber(0)
+
+export const useFetchBnb = () => {
+  const dispatch = useDispatch()
+  const { slowRefresh } = useRefresh()
+  useEffect(() => {
+    dispatch(fetchBnbPrice())
+  }, [dispatch, slowRefresh])
+}
 
 export const useFetchPublicData = () => {
   const dispatch = useDispatch()
   const { slowRefresh } = useRefresh()
   useEffect(() => {
     dispatch(fetchFarmsPublicDataAsync())
-    // dispatch(fetchPoolsPublicDataAsync())
   }, [dispatch, slowRefresh])
 }
 
@@ -69,15 +77,14 @@ export const usePoolFromPid = (sousId): Pool => {
 // Prices
 
 export const usePriceBnbBusd = (): BigNumber => {
-  const pid = 2 // BUSD-BNB LP
-  const farm = useFarmFromPid(pid)
-  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
+  const bnbPrice = useSelector((state: State) => state.farms.bnbPrice)
+  return bnbPrice
 }
 
 export const usePriceMarsBusd = (): BigNumber => {
-  const pid = 0; // MARS-BUSD LP
-  const farm = useFarmFromPid(pid);
-  return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
+  const marsBnbFarm = useFarmFromPid(0)
+  const bnbBusdPrice = usePriceBnbBusd()
+  return marsBnbFarm?.tokenPriceVsQuote && bnbBusdPrice ? bnbBusdPrice.times(marsBnbFarm.tokenPriceVsQuote) : ZERO
 }
 
 export const useTotalValue = (): BigNumber => {
@@ -90,13 +97,15 @@ export const useTotalValue = (): BigNumber => {
     if (farm.lpTotalInQuoteToken) {
       let val;
       if (farm.quoteTokenSymbol === QuoteToken.BNB) {
-        val = (bnbPrice.times(farm.lpTotalInQuoteToken));
+        val = (bnbPrice?.times(farm.lpTotalInQuoteToken));
       } else if (farm.quoteTokenSymbol === QuoteToken.MARS) {
-        val = (marsPrice.times(farm.lpTotalInQuoteToken));
-      } else{
+        val = (marsPrice?.times(farm.lpTotalInQuoteToken));
+      } else {
         val = (farm.lpTotalInQuoteToken);
       }
-      value = value.plus(val);
+      if (val?.toNumber()) {
+        value = value.plus(val);
+      }
     }
   }
   return value;
