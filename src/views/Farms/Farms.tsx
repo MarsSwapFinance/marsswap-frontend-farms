@@ -24,7 +24,6 @@ export interface FarmsProps {
 
 const Farms: React.FC<FarmsProps> = ({ stocksMode }) => {
   const { path } = useRouteMatch()
-  const TranslateString = useI18n()
   const farmsLP = useFarms()
   const marsPrice = usePriceMarsBusd()
   const bnbPrice = usePriceBnbBusd()
@@ -63,6 +62,9 @@ const Farms: React.FC<FarmsProps> = ({ stocksMode }) => {
         let apy = marsPrice.times(marsRewardPerYear);
 
         let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0);
+        if (farm.pid === 16) {
+          totalValue = marsPrice.times(farm.lpTotalInQuoteToken)
+        }
 
         if (farm.quoteTokenSymbol === QuoteToken.BNB) {
           totalValue = totalValue.times(bnbPrice);
